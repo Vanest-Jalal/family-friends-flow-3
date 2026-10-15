@@ -1,26 +1,33 @@
 import Image from "next/image";
+import Link from "next/link";
 import FavoriteButton from "./FavoriteButton";
 
-const BreedCard = ({ image, name, origin }) => {
+const BreedCard = ({ image, name, origin, height, isFavorite = false }) => {
   return (
-    <div className="overflow-hidden rounded-xl bg-white shadow-md">
-      <div className="relative">
+    <div className={`breed-card relative ${height}`}>
+      <Link
+        href="/detailview"
+        className="focus-visible:outline-coral block rounded-xl focus-visible:outline-2"
+      >
         <Image
           src={image}
           width={400}
           height={400}
           alt={name}
-          className="h-32 w-full object-cover"
+          loading="eager"
+          className="aspect-[160/114] w-full rounded-2xl object-cover"
         />
 
-        <div className="absolute top-2 right-2">
-          <FavoriteButton />
+        <div className="px-3 py-2">
+          <h3 className="text-[15px] leading-tight font-bold">{name}</h3>
+          <p className="mt-1 text-xs leading-[120%] font-medium text-black/40">
+            {origin}
+          </p>
         </div>
-      </div>
+      </Link>
 
-      <div className="p-4">
-        <h3 className="text-lg font-semibold">{name}</h3>
-        <p className="text-sm text-gray-500">{origin}</p>
+      <div className="absolute top-2 right-2">
+        <FavoriteButton isFavorite={isFavorite} />
       </div>
     </div>
   );
