@@ -13,7 +13,7 @@ export default function DetailView() {
 
       <div className="relative overflow-hidden rounded-3xl">
         <Image
-          src="/dummydog.jpg"
+          src="/affenpinscher.png"
           width={400}
           height={500}
           alt="Affenpinscher"

@@ -9,14 +9,16 @@ const BreedCard = ({ image, name, origin, height, isFavorite = false }) => {
         href="/detailview"
         className="focus-visible:outline-coral block rounded-xl focus-visible:outline-2"
       >
-        <Image
-          src={image}
-          width={400}
-          height={400}
-          alt={name}
-          loading="eager"
-          className="aspect-[160/114] w-full rounded-2xl object-cover"
-        />
+        <div className="aspect-[160/114] overflow-hidden rounded-2xl">
+          <Image
+            src={image}
+            width={400}
+            height={400}
+            alt={name}
+            loading="eager"
+            className="h-full w-full scale-[1.02] object-cover object-center"
+          />
+        </div>
 
         <div className="px-3 py-2">
           <h3 className="text-[15px] leading-tight font-bold">{name}</h3>
